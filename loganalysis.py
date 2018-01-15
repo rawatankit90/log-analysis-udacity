@@ -14,36 +14,79 @@ HTML_WRAP = '''\
 <html>
   <head>
     <title>Analysis</title>
-    <style>
-      .post { border: 1px solid #999;
+
+    <!--Bootstrap 4 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        body {
+            padding-top: 80px;
+        }
+        .post { border: 1px solid #999;
                  padding: 10px 10px;
                  margin: 10px; }
-      .column {border: 1px solid #999;}
+        .column {border: 1px solid #999;
+                text-align:center;}
+        h2 {
+            padding : 10px;
+        }
     </style>
   </head>
   <body>
-  <p>Most popular three articles of all time </p>
-    %s
-  <p>Most popular author </p>
-    %s
-  <p>Days with more than 1 percent of requests lead to errors</p>
-  %s
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Most popular three articles of all time </h2>
+                <table>
+                    <tr class="post">
+                        <th class="column">Article</th>
+                        <th class="column">Views</th>
+                    </tr>
+                    %s
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Most popular author </h2>
+                <table>
+                    <tr class="post">
+                        <th class="column">Author</th>
+                        <th class="column">Views</th>
+                    </tr>
+                    %s
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Days with more than 1 percent of requests lead to errors</h2>
+                <table>
+                    <tr class="post">
+                        <th class="column">Date</th>
+                        <th class="column">Error Percentage</th>
+                    </tr>
+                    %s
+                </table>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
 '''
 
 # HTML template for an individual comment
 POP_ARTICLE = '''\
-    <table><tr class='post'><td class="column">%s</td><td class="column">%s
-    </td></tr></table>
+    <tr class='post'><td class="column">%s</td><td class="column">%s</td></tr>
 '''
 POP_AUTHOR = '''\
-    <table><tr class='post'><td class="column">%s</td><td class="column">%s
-    </td></tr></table>
+    <tr class='post'><td class="column">%s</td><td class="column">%s</td></tr>
     '''
 ERR_DATA = '''\
-    <table><tr class='post'><td class="column">%s</td><td class="column">%s
-    </td></tr></table>
+    <tr class='post'><td class="column">%s</td><td class="column">%s</td></tr>
     '''
 
 
