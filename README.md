@@ -16,7 +16,9 @@ In order to view these files you must have a
 2) Unzip the downloaded file.
 3) Place the above files in Vagrant directory
 4) From Vagrant, SSH to VM [Virtual Machine]  and navigate to the folder "log-analysis" under vagrant folder
-5) To Create the View and load data, cd into the vagrant directory and use the command psql -d ne -f newsdata.sql.
+5) Create the Views
+        '''create view error_data as select count(*), time::date from log where  status='404 NOT FOUND' group by time::date;
+        create view total_data as select count(*), time::date from log group by time::date;'''
 6) Run the command to start the python server : python loganalysis.py
 7) Open the http://localhost:8000/ to see the output
 
