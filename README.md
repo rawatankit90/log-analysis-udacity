@@ -28,3 +28,4 @@ In order to view these files you must have a
 3) Bootstrap 4
 4) Python 3
 5) Postgresql 9.5
+6) psycopg2

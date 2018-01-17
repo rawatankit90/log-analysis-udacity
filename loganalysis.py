@@ -113,7 +113,7 @@ def main():
     author = "".join(POP_AUTHOR % (author, visitcount)
                      for author, visitcount in get_popular_article_author())
 
-    error_day = "".join(ERR_DATA % (date, percent_error)
+    error_day = "".join(ERR_DATA % (date, round(percent_error,2))
                         for percent_error, date in get_error_day())
 
     html = HTML_WRAP % (article, author, error_day)
